@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="description" content="A page for exploring basic HTML documents">
+    <title>ПИИС Третья Лаба</title>
+    <style>
+        .shirt{
+            border: 6px solid black;
+            border-radius: 30px;
+            padding: 10px;
+            width: 315px;
+            margin: 10px;
+        }
+
+        .shirt, .ND{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .ND{
+            transform: translate(0px, -30px);
+        }
+        
+        .button{
+            margin: 10px;
+        }
+
+        .shirt_image{
+            transform: scale(0.75);
+            margin-top: -50px;
+        }
+
+        .header, .container{
+            display: flex;
+            flex-direction: row; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="header"><p><strong>Our T-shirts</strong></p></div>
+        <div class="container" id="Container"></div>
+        <script src = "./shirts.js" ></script>
+        <script src = "./new.js" ></script>
+    </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laba_7_INIS</title>
+    <style>
+        svg{
+            border : 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <p>Выберите фигуру:</p>
+    <input type="radio" id="circle" name="shape" value="circle" checked>
+    <label for="circle">Круг</label>
+    <input type="radio" id="rect" name="shape" value="rect">
+    <label for="rect">Прямоугольник</label>
+    <svg id = "svg" width="1500" height="700">
+    </svg>
+    <script>
+        let svg = document.getElementById("svg");
+        let circle = document.getElementById("circle");
+        let rect = document.getElementById("rect");
+    
+        let x1, y1, x2, y2, shape;
+    
+        function createShape() { // Определение выбранной фигуры
+          if (circle.checked) {
+            shape = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            shape.setAttribute("class", "shape");
+            shape.setAttribute("cx", x1);
+            shape.setAttribute("cy", y1);
+            shape.setAttribute("r", 0);
+          } else if (rect.checked) {
+            shape = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+            shape.setAttribute("class", "shape");
+            shape.setAttribute("x", x1);
+            shape.setAttribute("y", y1);
+            shape.setAttribute("width", 0);
+           shape.setAttribute("height", 0);
+          }
+          shape.setAttribute("fill", "none")
+          shape.setAttribute("stroke", "black");
+          shape.setAttribute("stroke-width", "3");
+          svg.appendChild(shape);
+        }
+    
+        function updateShape() { // Обновление отображаемой фигуры в соответствии с выбранными координатами
+          let dx = Math.abs(x2 - x1);
+          let dy = Math.abs(y2 - y1);
+          let r = Math.sqrt(dx * dx + dy * dy);
+          if (circle.checked) {
+            shape.setAttribute("cx", x1);
+            shape.setAttribute("cy", y1);
+            shape.setAttribute("r", r);
+          } else if (rect.checked) {
+            shape.setAttribute("x", Math.min(x1, x2));
+            shape.setAttribute("y", Math.min(y1, y2));
+            shape.setAttribute("width", dx);
+            shape.setAttribute("height", dy);
+          }
+        }
+    
+        svg.addEventListener("mousedown", function(event) { // Обработка события нажатия мыши
+          x1 = event.offsetX;
+          y1 = event.offsetY;
+          createShape();
+        });
+    
+        svg.addEventListener("mousemove", function(event) { // Обработка события движения мыши
+          if (shape && event.buttons == 1) {
+            x2 = event.offsetX;
+            y2 = event.offsetY;
+            updateShape();
+          }
+        });
+    
+        svg.addEventListener("mouseup", function(event) { // Обработка события отпускания кнопки мыши
+          if (shape) {
+            x2 = event.offsetX;
+            y2 = event.offsetY;
+            updateShape();
+          }
+        });
+      </script>
+</body>
+</html>

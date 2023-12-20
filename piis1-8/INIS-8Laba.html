@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laba_8_INIS</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div id="controls">
+    <p>Выберите фигуру:</p>
+    <input type="radio" id="circle" name="shape" value="circle" checked>
+    <label for="circle">Круг</label>
+    <input type="radio" id="rect" name="shape" value="rect">
+    <label for="rect">Прямоугольник</label>
+  </div>
+
+  <canvas id="canvas" width="1300" height="600"></canvas>
+
+  <script>
+    let canvas = document.getElementById("canvas");
+    let circle = document.getElementById("circle");
+    let rect = document.getElementById("rect");
+    let ctx = canvas.getContext("2d");
+
+    let x1, y1, x2, y2, shape;
+
+    function createShape() {  // Определение выбранной фигуры
+      if (circle.checked) {
+        shape = "circle";
+      } else if (rect.checked) {
+        shape = "rect";
+      }
+      ctx.save();
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 2;
+    }
+
+    function updateShape() { // Обновление отображаемой фигуры в соответствии с выбранными координатами
+      let dx = Math.abs(x2 - x1);
+      let dy = Math.abs(y2 - y1);
+      let r = Math.sqrt(dx * dx + dy * dy);
+      ctx.restore();
+      ctx.beginPath();
+      if (shape == "circle") {
+        ctx.arc(x1, y1, r, 0, 2 * Math.PI);
+      } else if (shape == "rect") {
+        ctx.rect(Math.min(x1, x2), Math.min(y1, y2), dx, dy);
+      }
+      ctx.stroke();
+    }
+
+    canvas.addEventListener("mousedown", function(event) { // Обработка события нажатия мыши
+      x1 = event.offsetX;
+      y1 = event.offsetY;
+      createShape();
+    });
+
+    canvas.addEventListener("mousemove", function(event) { // Обработка события движения мыши
+      if (shape && event.buttons == 1) {
+        x2 = event.offsetX;
+        y2 = event.offsetY;
+      	ctx.clearRect(0, 0, canvas.width, canvas.height);
+        updateShape();
+      }
+    });
+
+    canvas.addEventListener("mouseup", function(event) { // Обработка события отпускания кнопки мыши
+      if (shape) {
+        x2 = event.offsetX;
+        y2 = event.offsetY;
+        updateShape();
+      }
+    });
+  </script>
+</body>
+</html>

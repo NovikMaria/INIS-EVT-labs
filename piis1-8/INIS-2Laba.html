@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th, td, table {
+            border: 1px solid black; border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <table id="table">
+        <th>Movies</th>   <th>Score</th>
+    </table>
+    <script>
+        let personalMovieDB = {privat: false, movies: {"Avatar 2": 6.5, "Totoro": 7.7, "John Wick 2": 8.3}};
+
+        let table = document.querySelector("#table");
+        
+        function DrawTable(m, s){
+            let row = document.createElement("tr");
+            let movie = document.createElement("td");
+            let score = document.createElement("td");
+            movie.textContent = m;
+            score.textContent = s;
+            row.appendChild(movie);
+            row.appendChild(score);
+            table.appendChild(row);
+        }
+
+        if(personalMovieDB.privat == false){
+            for(let key in personalMovieDB.movies){
+                DrawTable(key, personalMovieDB.movies[key]);
+            } 
+        }
+    </script>
+</body>
+</html>
