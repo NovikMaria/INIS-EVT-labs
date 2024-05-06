@@ -1,0 +1,60 @@
+@font-face {
+    font-family: "For first";
+    src: url("Font_first.ttf") format(".ttf");
+
+    font-family: "For second";
+    src: url("Font_second.ttf") format(".ttf"); 
+
+    font-family: "For third";
+    src: url("Merriweather-LightItalic.ttf") format(".ttf"); 
+}
+
+body{
+    background-image: 
+    url(Photo/Фон.jpeg);
+    background-attachment: fixed;
+    width: 1440px;
+    margin: 0 auto;
+    color: white;
+}
+
+ul {
+    list-style-type: none; 
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#film1 p {
+    text-align: center;
+    font-family: "For first", sans-serif;
+}
+
+#film2 p {
+    text-align: right;
+    font-family: "For second", sans-serif;
+}
+
+#film3 p {
+    text-align: left;
+    font-family: "For third", sans-serif;
+}
+
+img {
+    margin: 0 auto;
+    border-radius: 5%;
+}
+
+body img {
+    width: 300px;
+    height: 200px;
+}
+
+#header_img img {
+    width: 200px;
+    height: 300px;
+}
+
+
