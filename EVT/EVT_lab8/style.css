@@ -1,0 +1,45 @@
+html {
+    font-family: sans-serif;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  header {
+    background: rgb(52, 206, 142);
+    height: 100px;
+  }
+
+  h1 {
+    text-align: center;
+    color: white;
+    line-height: 100px;
+    margin: 0;
+  }
+
+  article {
+    padding: 10px;
+    margin: 10px;
+    background: rgba(16, 233, 215, 0.178);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .grid :nth-child(1) {
+    grid-row: span 3;
+  }
+  
+  .grid :nth-child(3) {
+    grid-column: 3 / span 2;
+    grid-row: 1 / span 2;
+  }
+    
+  .grid :nth-child(9) {
+    grid-column: 2/span 2;
+    grid-row: 4;
+  }
