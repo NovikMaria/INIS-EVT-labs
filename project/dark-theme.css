@@ -1,0 +1,111 @@
+body.dark-theme {
+    color:#f1f1f1;
+    background-color: #3A3A3A;
+}
+  
+  body.dark-theme .header {
+    background-color: #606060;
+  }
+
+  body.dark-theme .logo {
+    color: rgb(255, 255, 255);
+   }
+
+   body.dark-theme .logo::after {
+    background-color: #78b6ff;
+  }
+
+  body.dark-theme .logo:active {
+    color: #000000;
+  }
+
+  body.dark-theme .nav-link:hover,
+  body.dark-theme .nav-link:focus {
+  color: #545454;
+}
+
+body.dark-theme .nav-link {
+  color: #f1f1f1;
+}
+
+body.dark-theme .nav-link.active {
+  color: #999999;
+}
+
+body.dark-theme .title {
+    color: #78b6ff;
+  }
+
+  body.dark-theme .what-a {
+    color: #f1f1f1; 
+}
+
+  body.dark-theme .goals {
+    background-color: #606060;
+  }
+
+  body.dark-theme .goals-card {
+    color: #f1f1f1;
+  }
+
+  body.dark-theme .ul {
+    color: #78b6ff;
+  }
+  
+  body.dark-theme li span {
+    color: #f1f1f1;
+  }
+  
+  body.dark-theme .types {
+    background-color: #606060;
+  }
+
+  body.dark-theme .levels {
+    background-color: #606060;
+  }
+
+  body.dark-theme #active label {
+    /*стиль отдельного переключателя*/
+    background: #828282;
+  }
+
+  body.dark-theme #active label:hover {
+    /*поведение чекбокса при наведении*/
+    background: #76c8ff;
+    border-color: #777 !important; /*выполнение в любом случае*/
+  }
+
+  /*цвет активного лейбла при активации чекбокса*/
+#switch1:checked ~ #active label:nth-child(1),
+#switch2:checked ~ #active label:nth-child(2),
+#switch3:checked ~ #active label:nth-child(3),
+#switch4:checked ~ #active label:nth-child(4),
+#switch5:checked ~ #active label:nth-child(5) {
+  background: #78b6ff;
+  border-color: #78b6ff !important;
+}
+
+body.dark-theme .btn {
+    background-color: #000;
+    color: #fff;
+    transition: background-color 0.2s ease-in, top 0.2s ease-in;
+  }
+
+  body.dark-theme .btn:hover,
+  body.dark-theme .btn:focus {
+  background-color: #303030;
+}
+
+body.dark-theme .btn:active {
+  background-color: #000000;
+}
+
+body.dark-theme .contacts-footer {
+    color: #828282;
+  }
+
+  @media (max-width: 1188px) {
+    body.dark-theme .nav.open .nav-list {
+        background-color: #606060;
+    }
+}
